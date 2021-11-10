@@ -19,13 +19,13 @@ jobs:
       with:
         dotnet-version: 5.0.x
     - name: Install dependencies
-      run: dotnet restore ${{github.workspace}}/WebApplication1/WebApplication1/WebApplication1.csproj
+      run: dotnet restore ${{github.workspace}}/WebApplication1/WebApplication1.csproj
     - name: Build
-      run: dotnet build ${{github.workspace}}/WebApplication1/WebApplication1/WebApplication1.csproj --configuration Release --no-restore
+      run: dotnet build ${{github.workspace}}/WebApplication1/WebApplication1.csproj --configuration Release --no-restore
     - name: Test
-      run: dotnet test ${{github.workspace}}/WebApplication1/WebApplication1/WebApplication1.csproj --no-build --verbosity normal
+      run: dotnet test ${{github.workspace}}/WebApplication1/WebApplication1.csproj --no-build --verbosity normal
     - name: publish
-      run: dotnet publish ${{github.workspace}}/WebApplication1/WebApplication1/WebApplication1.csproj -c  -release -o dotnetcorewebapp
+      run: dotnet publish ${{github.workspace}}/WebApplication1/WebApplication1.csproj -c  -release -o dotnetcorewebapp
     - name: deploy to azure webapp
       uses: azure/webapps-deploy@v2
       with:
